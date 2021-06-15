@@ -1,64 +1,35 @@
 #include <Arduino.h>
+//#include "src/ptr.h"
+#include "src/pointer.h"
 
-struct DataInput
-{
-    int valA;
-    int valB;
-} myInput;
-
-struct DataOutput
-{
-    int result1 = 0;        // A + B
-    int result2 = 0;        // B - A
-    int result3 = 0;        // B + B
-    float result4 = 0;        // A + A
-} myOutput;
-
-// set valA & B ( 7, 10)
-// setVal A&B (int A, int B, *DataInput)
-// process (DataInput, *DataOutput)
-// printData value
+pointer mypointer;
 
 void setup()
 {
     Serial.begin(9600);
-    setVal_AB (7, 10, &myInput);
-    process (myInput, &myOutput);
-    print(myOutput);
+
+    mypointer.init(7, 10);
+    mypointer.inproces();
 }
 
 void loop()
 {
-
 }
 
-void setVal_AB (int A, int B, DataInput *input)
+/*  #include "ptr.h"
+ptr mypointer;
+
+void setup()
 {
-    input->valA = A;
-    input->valB = B;
+    Serial.begin(9600);
+    mypointer.init();
+    
 }
 
-void process (DataInput input, DataOutput *output)
+void loop()
 {
-    output->result1 = input.valA + input.valB;
-    output->result2 = input.valB - input.valA;
-    output->result3 = input.valB + input.valB;
-    output->result4 = input.valA + input.valA;
-
 }
-
-void print (DataOutput output)
-{
-    Serial.println (output.result1);
-    Serial.println (output.result2);
-    Serial.println (output.result3);
-    Serial.println (output.result4);
-}
-
-
-
-
-
+*/
 
 /* pass by reference - &result = dia akan samakan dgn nama diberi di atas result1
 
@@ -96,4 +67,3 @@ int operasi(int A, int B, int *ops1, int *ops2, int *ops3, int *ops4 )         /
     *ops4 = A+A;
 }
 */
-
