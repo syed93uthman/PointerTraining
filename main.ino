@@ -8,8 +8,9 @@ void setup()
 {
     Serial.begin(9600);
 
-    mypointer.init(7, 10);
-    mypointer.inproces();
+    mypointer.setVal_AB(7,10, &myData);
+    mypointer.process(myData, &myData);
+    mypointer.displayResult(myData);
 }
 
 void loop()

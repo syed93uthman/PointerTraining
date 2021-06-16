@@ -5,32 +5,27 @@
 
 #pragma once
 
+struct Data
+{
+    //Input
+    int valA;
+    int valB;
+
+    //Output
+    int result[4] = {0};
+
+} myData;
+
 class pointer
 {
 private:
-    struct Data
+public:
+    pointer(){};
+
+    void setVal_AB(int A, int B, Data *myInput)
     {
-        //Input
-        int valA;
-        int valB;
-
-        //Output
-        int result[4] = {0};
-
-    } myData;
-
-    void setVal_AB(int A, int B, Data *setIn)
-    {
-        setIn->valA = A;
-        setIn->valB = B;
-    }
-
-    void process(Data proIn, Data *out)
-    {
-        out->result[0] = proIn.valA + proIn.valB;
-        out->result[1] = proIn.valB - proIn.valA;
-        out->result[2] = proIn.valB + proIn.valB;
-        out->result[3] = proIn.valA + proIn.valA;
+        myInput->valA = A;
+        myInput->valB = B;
     }
 
     void displayResult(Data out)
@@ -44,18 +39,11 @@ private:
         }
     }
 
-public:
-    pointer(){};
-
-    void init(int a, int b)
+    void process(Data proIn, Data *out)
     {
-
-        setVal_AB(a, b, &myData);
-    }
-
-    void inproces()
-    {
-        process(myData, &myData);
-        displayResult(myData);
+        out->result[0] = proIn.valA + proIn.valB;
+        out->result[1] = proIn.valB - proIn.valA;
+        out->result[2] = proIn.valB + proIn.valB;
+        out->result[4] = proIn.valA + proIn.valA;
     }
 };
